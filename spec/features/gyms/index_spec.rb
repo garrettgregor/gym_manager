@@ -1,15 +1,12 @@
 require "rails_helper"
 
 RSpec.describe "gyms index page", type: :feature do
-
-  # [ ] done
-
-  # User Story 1, Parent Index
+  # User Story 1, Gym Index
 
   # For each gyms table
   # As a visitor
   # When I visit '/gyms'
-  # Then I see the name of each parent record in the system
+  # Then I see the name of each gym record in the system
   it "can show all of the gyms" do
     gym1 = Gym.create(name:         "Movement",
                       member_cost:  92,
