@@ -35,7 +35,7 @@ RSpec.describe "member index page", type: :feature do
                             gym_id: gym2.id)
 
     visit "/members"
-    save_and_open_page
+    # save_and_open_page
 
     expect(page).to have_content("Member Name: #{member1.name}")
     expect(page).to have_content("Money Spent: $#{member1.money_spent}")
