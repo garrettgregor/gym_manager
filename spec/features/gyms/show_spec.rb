@@ -1,12 +1,12 @@
 require "rails_helper"
 
 RSpec.describe "gyms index page", type: :feature do
-  # User Story 1, Gym Index
+  # User Story 2, Parent Show
 
-  # For each gyms table
   # As a visitor
-  # When I visit '/gyms'
-  # Then I see the name of each gym record in the system
+  # When I visit '/gyms/:id'
+  # Then I see the gym with that id including the gym's attributes
+  # (data from each column that is on the gym table)
   it "can show all of the gyms" do
     gym1 = Gym.create(name:         "Movement",
                       member_cost:  92,
@@ -16,7 +16,7 @@ RSpec.describe "gyms index page", type: :feature do
                       member_cost:  75,
                       guest_cost:   20,
                       in_colorado:  true)
-    visit "/gyms"
+    visit "/gyms/#{gym1.id}"
     save_and_open_page
 
     expect(page).to have_content("Gym Name: #{gym1.name}")
@@ -24,9 +24,6 @@ RSpec.describe "gyms index page", type: :feature do
     expect(page).to have_content("Day Rate for Guests: $#{gym1.guest_cost}")
     expect(page).to have_content("In Colorado: #{gym1.in_colorado}")
 
-    expect(page).to have_content("Gym Name: #{gym2.name}")
-    expect(page).to have_content("Member Cost Per Month: $#{gym2.member_cost}")
-    expect(page).to have_content("Day Rate for Guests: $#{gym2.guest_cost}")
-    expect(page).to have_content("In Colorado: #{gym2.in_colorado}")
   end
 end
+
