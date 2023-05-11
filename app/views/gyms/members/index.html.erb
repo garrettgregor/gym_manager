@@ -1,0 +1,8 @@
+<h1><%= @gym.name %></h1>
+<h2>Members</h2>
+<% @members.each do |member| %>
+  <h3>Member Name: <%= member.name %></h3>
+  <p>Money Spent: $<%= member.money_spent %></p>
+  <p>Resident of CO?: <%= member.co_resident %></p>
+  <p>Member of: <%= member.gym_id %></p>
+<% end %>
