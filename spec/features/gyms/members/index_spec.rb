@@ -52,7 +52,7 @@ RSpec.describe "parent child index page", type: :feature do
 
   it "can show one another member" do
     visit "/gyms/#{@gym2.id}/members"
-    save_and_open_page
+    # save_and_open_page
 
     expect(page).to have_content("Member Name: #{@member3.name}")
     expect(page).to have_content("Money Spent: $#{@member3.money_spent}")
