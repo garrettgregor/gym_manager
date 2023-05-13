@@ -8,31 +8,31 @@ RSpec.describe "member index page", type: :feature do
   # Then I see each member in the system including the member's attributes
   # (data from each column that is on the member table)
   it "can show all of the members" do
-    gym1 = Gym.create!(name:         "Movement",
-                      member_cost:  92,
-                      guest_cost:   25,
-                      in_colorado:  true)
-    member1 = Member.create!(name:         "Garrett",
-                            money_spent: 300,
-                            co_resident: true,
-                            gym_id: gym1.id)
-    member2 = Member.create!(name:         "Audrey",
-                            money_spent: 300,
-                            co_resident: true,
-                            gym_id: gym1.id)
+    gym1 = Gym.create!(name: "Movement",
+      member_cost: 92,
+      guest_cost: 25,
+      in_colorado: true)
+    member1 = Member.create!(name: "Garrett",
+      money_spent: 300,
+      co_resident: true,
+      gym_id: gym1.id)
+    member2 = Member.create!(name: "Audrey",
+      money_spent: 300,
+      co_resident: true,
+      gym_id: gym1.id)
 
     gym2 = Gym.create!(name: "The Spot",
-                      member_cost:  75,
-                      guest_cost:   20,
-                      in_colorado:  true)
-    member3 = Member.create!(name:         "Brad",
-                            money_spent: 250,
-                            co_resident: false,
-                            gym_id: gym2.id)
-    member4 = Member.create!(name:         "Sarah",
-                            money_spent: 250,
-                            co_resident: false,
-                            gym_id: gym2.id)
+      member_cost: 75,
+      guest_cost: 20,
+      in_colorado: true)
+    member3 = Member.create!(name: "Brad",
+      money_spent: 250,
+      co_resident: false,
+      gym_id: gym2.id)
+    member4 = Member.create!(name: "Sarah",
+      money_spent: 250,
+      co_resident: false,
+      gym_id: gym2.id)
 
     visit "/members"
     # save_and_open_page
