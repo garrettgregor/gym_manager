@@ -1,7 +1,5 @@
 <h1>Every Gym Everywhere All at Once</h1>
 <% @gyms.each do |gym| %>
-  <h2>Gym Name: <%= gym.name %></h2>
-  <h3>Member Cost Per Month: $<%= gym.member_cost %></h3>
-  <h3>Day Rate for Guests: $<%= gym.guest_cost %></h3>
-  <p>In Colorado: <%= gym.in_colorado %></p>
+  <h3>Gym Name: <%= gym.name %></h2>
+  <p>Created At: <%= gym.created_at %></p>
 <% end %>
