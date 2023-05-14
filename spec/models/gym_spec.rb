@@ -5,7 +5,7 @@ RSpec.describe Gym, type: :model do
     it { should have_many :members }
   end
 
-  describe "#order_by_created_at" do
+  describe "#ordered_members_at" do
     it "will sort items in most recently created order" do
       gym1 = Gym.create!(name: "Touchstone",
         member_cost: 100,
@@ -16,10 +16,10 @@ RSpec.describe Gym, type: :model do
         guest_cost: 25,
         in_colorado: true)
 
-      # actual = Gym.order_by_created
+      # actual = Gym.ordered_members
       # expected/result = [gym2,gym1]
 
-      expect(Gym.order_by_created).to eq([gym2,gym1])
+      expect(Gym.ordered_members).to eq([gym2,gym1])
     end
   end
 

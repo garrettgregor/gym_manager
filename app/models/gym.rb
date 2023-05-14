@@ -1,7 +1,7 @@
 class Gym < ApplicationRecord
   has_many :members
 
-  def self.order_by_created
+  def self.ordered_members
     #self.order(created_at: :desc)
     # ^ does the same thing but as a reminder that this is a class method
     order(created_at: :desc)
