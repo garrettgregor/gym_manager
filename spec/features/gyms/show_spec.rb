@@ -97,5 +97,47 @@ RSpec.describe "gyms index page", type: :feature do
     expect(page).to have_content("Day Rate for Guests: $#{gym2.guest_cost}")
     expect(page).to have_content("In Colorado: #{gym2.in_colorado}")
   end
+
+  # User Story 8, Child Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+  it "can show a link to the members page" do
+    gym1 = Gym.create!(name: "Movement",
+      member_cost: 92,
+      guest_cost: 25,
+      in_colorado: true)
+    member1 = Member.create!(name: "Garrett",
+      money_spent: 300,
+      co_resident: true,
+      gym_id: gym1.id)
+    member2 = Member.create!(name: "Audrey",
+      money_spent: 300,
+      co_resident: true,
+      gym_id: gym1.id)
+
+    gym2 = Gym.create!(name: "The Spot",
+      member_cost: 75,
+      guest_cost: 20,
+      in_colorado: true)
+    member3 = Member.create!(name: "Brad",
+      money_spent: 250,
+      co_resident: false,
+      gym_id: gym2.id)
+    member4 = Member.create!(name: "Sarah",
+      money_spent: 250,
+      co_resident: false,
+      gym_id: gym2.id)
+    member5 = Member.create!(name: "Chris",
+      money_spent: 250,
+      co_resident: true,
+      gym_id: gym2.id)
+
+    visit "/gyms/#{gym1.id}"
+
+    expect(page).to have_content("Every Member Everywhere")
+    expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
 end
 

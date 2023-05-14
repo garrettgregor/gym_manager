@@ -64,4 +64,17 @@ end
     expect(page).to have_content("Resident of CO?: #{@member4.co_resident}")
     expect(page).to have_content("Member of: #{@gym2.id}")
   end
+
+  # User Story 8, Child Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+  it "can show a link to the members page" do
+    visit "/gyms/#{@gym2.id}/members"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Member Everywhere")
+    expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
 end

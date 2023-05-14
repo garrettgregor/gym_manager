@@ -48,4 +48,26 @@ RSpec.describe "gyms index page", type: :feature do
     expect("Gym Name: #{gym2.name}").to appear_before("Gym Name: #{gym1.name}")
     expect("Created At: #{gym2.created_at}").to appear_before("Created At: #{gym1.created_at}")
   end
+
+  # User Story 8, Child Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+  it "can show a link to the members page" do
+    gym1 = Gym.create!(name: "Movement",
+                        member_cost:  92,
+                        guest_cost:   25,
+                        in_colorado:  true,
+                        created_at: Date.today - 1)
+    gym2 = Gym.create!(name: "Touchstone",
+                        member_cost:  100,
+                        guest_cost:   30,
+                        in_colorado:  false)
+    visit "/gyms"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Member Everywhere")
+    expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
 end
