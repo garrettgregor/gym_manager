@@ -70,11 +70,36 @@ end
   # As a visitor
   # When I visit any page on the site
   # Then I see a link at the top of the page that takes me to the Child Index
-  it "can show a link to the members page" do
+  it "can show a link to the members index page" do
+    visit "/gyms/#{@gym1.id}/members"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Member Everywhere")
+    expect(page).to have_link("Every Member Everywhere", href: "/members/")
+
     visit "/gyms/#{@gym2.id}/members"
     # save_and_open_page
 
     expect(page).to have_content("Every Member Everywhere")
     expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
+
+  # User Story 9, Parent Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Parent Index
+  it "can show a link to the gyms index page" do
+    visit "/gyms/#{@gym1.id}/members"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Gym Everywhere")
+    expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
+
+    visit "/gyms/#{@gym2.id}/members"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Gym Everywhere")
+    expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
   end
 end

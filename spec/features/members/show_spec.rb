@@ -61,11 +61,35 @@ RSpec.describe "member show page", type: :feature do
   # When I visit any page on the site
   # Then I see a link at the top of the page that takes me to the Child Index
   it "can show a link to the members page" do
-    visit "/members/#{@member3.id}"
-
+    visit "/members/#{@member1.id}"
     # save_and_open_page
 
     expect(page).to have_content("Every Member Everywhere")
     expect(page).to have_link("Every Member Everywhere", href: "/members/")
+
+    visit "/members/#{@member3.id}"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Member Everywhere")
+    expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
+
+  # User Story 9, Parent Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Parent Index
+  it "can show a link to the members page" do
+    visit "/members/#{@member1.id}"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Gym Everywhere")
+    expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
+
+    visit "/members/#{@member3.id}"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Gym Everywhere")
+    expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
   end
 end

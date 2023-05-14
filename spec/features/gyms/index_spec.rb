@@ -16,6 +16,7 @@ RSpec.describe "gyms index page", type: :feature do
       member_cost: 75,
       guest_cost: 20,
       in_colorado: true)
+      
     visit "/gyms"
     # save_and_open_page
 
@@ -34,14 +35,15 @@ RSpec.describe "gyms index page", type: :feature do
   # And next to each of the records I see when it was created
   it "can show all of the gyms in the order they were created at" do
     gym1 = Gym.create!(name: "Movement",
-                        member_cost:  92,
-                        guest_cost:   25,
-                        in_colorado:  true,
-                        created_at: Date.today - 1)
+      member_cost: 92,
+      guest_cost: 25,
+      in_colorado: true,
+      created_at: Date.today - 1)
     gym2 = Gym.create!(name: "Touchstone",
-                        member_cost:  100,
-                        guest_cost:   30,
-                        in_colorado:  false)
+      member_cost: 100,
+      guest_cost: 30,
+      in_colorado: false)
+
     visit "/gyms"
     # save_and_open_page
 
@@ -54,20 +56,44 @@ RSpec.describe "gyms index page", type: :feature do
   # As a visitor
   # When I visit any page on the site
   # Then I see a link at the top of the page that takes me to the Child Index
-  it "can show a link to the members page" do
+  it "can show a link to the members index page" do
     gym1 = Gym.create!(name: "Movement",
-                        member_cost:  92,
-                        guest_cost:   25,
-                        in_colorado:  true,
-                        created_at: Date.today - 1)
+      member_cost: 92,
+      guest_cost: 25,
+      in_colorado: true,
+      created_at: Date.today - 1)
     gym2 = Gym.create!(name: "Touchstone",
-                        member_cost:  100,
-                        guest_cost:   30,
-                        in_colorado:  false)
+      member_cost: 100,
+      guest_cost: 30,
+      in_colorado: false)
+
     visit "/gyms"
     # save_and_open_page
 
     expect(page).to have_content("Every Member Everywhere")
     expect(page).to have_link("Every Member Everywhere", href: "/members/")
+  end
+
+  # User Story 9, Parent Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Parent Index
+  it "can show a link to the gyms index page" do
+    gym1 = Gym.create!(name: "Movement",
+      member_cost: 92,
+      guest_cost: 25,
+      in_colorado: true,
+      created_at: Date.today - 1)
+    gym2 = Gym.create!(name: "Touchstone",
+      member_cost: 100,
+      guest_cost: 30,
+      in_colorado: false)
+
+    visit "/gyms"
+    # save_and_open_page
+
+    expect(page).to have_content("Every Gym Everywhere")
+    expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
   end
 end
