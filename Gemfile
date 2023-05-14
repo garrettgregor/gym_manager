@@ -56,7 +56,7 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "simplecov" #save_and_open_page
-  gem "shoulda-matchers" #test associations/relationships 
+  gem "shoulda-matchers" #test associations/relationships
   gem "orderly"
   gem "factory_bot_rails"
   gem "faker"

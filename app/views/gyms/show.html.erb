@@ -1,4 +1,8 @@
-<h1>Gym Name: <%= @gym.name %></h2>
-<h2>Member Cost Per Month: $<%= @gym.member_cost %></h2>
-<h2>Day Rate for Guests: $<%= @gym.guest_cost %></h2>
+<a href="/gyms/">Every Gym Everywhere</a>
+<a href="/members/">Every Member Everywhere</a>
+<h1>Gym Name: <%= @gym.name %></h1>
+<h2>Number of Members: <%= @gym.number_of_members %></h2>
+<a href="/gyms/<%= @gym.id %>/members">Gym Members</a>
+<h3>Member Cost Per Month: $<%= @gym.member_cost %></h3>
+<h3>Day Rate for Guests: $<%= @gym.guest_cost %></h3>
 <p>In Colorado: <%= @gym.in_colorado %></p>

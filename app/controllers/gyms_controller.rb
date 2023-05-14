@@ -1,6 +1,6 @@
 class GymsController < ApplicationController
   def index
-    @gyms = Gym.all.order(:created_at)
+    @gyms = Gym.ordered_members
   end
 
   def show
