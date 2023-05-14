@@ -18,11 +18,11 @@ member2 = Member.create!(name: "Audrey",
   money_spent: 184,
   co_resident: true,
   gym_id: gym1.id)
-member5 = Member.create!(name: "Angie",
+member3 = Member.create!(name: "Angie",
   money_spent: 92,
   co_resident: true,
   gym_id: gym1.id)
-member6 = Member.create!(name: "Chris",
+member4 = Member.create!(name: "Chris",
   money_spent: 92,
   co_resident: true,
   gym_id: gym1.id)
@@ -31,11 +31,11 @@ gym2 = Gym.create!(name: "The Spot",
   member_cost: 75,
   guest_cost: 20,
   in_colorado: true)
-member3 = Member.create!(name: "Brad",
+member5 = Member.create!(name: "Brad",
   money_spent: 150,
   co_resident: false,
   gym_id: gym2.id)
-member4 = Member.create!(name: "Sarah",
+member6 = Member.create!(name: "Sarah",
   money_spent: 75,
   co_resident: false,
   gym_id: gym2.id)
@@ -44,11 +44,11 @@ gym3 = Gym.create!(name: "Benchmark ",
   member_cost: 125,
   guest_cost: 40,
   in_colorado: false)
-member3 = Member.create!(name: "Brian",
+member7 = Member.create!(name: "Brian",
   money_spent: 250,
   co_resident: false,
   gym_id: gym3.id)
-member4 = Member.create!(name: "Sam",
+member8 = Member.create!(name: "Sam",
   money_spent: 80,
   co_resident: false,
   gym_id: gym3.id)
