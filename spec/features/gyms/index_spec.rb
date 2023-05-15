@@ -16,7 +16,7 @@ RSpec.describe "gyms index page", type: :feature do
       member_cost: 75,
       guest_cost: 20,
       in_colorado: true)
-      
+
     visit "/gyms"
     # save_and_open_page
 
@@ -96,4 +96,34 @@ RSpec.describe "gyms index page", type: :feature do
     expect(page).to have_content("Every Gym Everywhere")
     expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
   end
+
+  # User Story 11, Parent Creation
+
+  # As a visitor
+  # When I visit the Parent Index page
+  # Then I see a link to create a new Parent record, "New Parent"
+  # When I click this link
+  # Then I am taken to '/parents/new' where I  see a form for a new parent record
+  # When I fill out the form with a new parent's attributes:
+  # And I click the button "Create Parent" to submit the form
+  # Then a `POST` request is sent to the '/parents' route,
+  # a new parent record is created,
+  # and I am redirected to the Parent Index page where I see the new Parent displayed.
+  it "can create a new gym" do
+    visit "/gyms"
+
+    click_link "New Gym"
+
+    expect(current_path).to eq("/gyms/new")
+    save_and_open_page
+    fill_in("Name:", with: "Gravity Vault")
+    fill_in("Member Cost:", with: 150)
+    fill_in("Guest Cost:", with: 35)
+    fill_in("In Colorado?:", with: false)
+
+    click_button "Create Gym"
+    expect(current_path).to eq("/gyms")
+    expect(page).to have_content("Gravity Vault")
+  end
+
 end
