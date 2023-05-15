@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "member index page", type: :feature do
-
-  
   # User Story 3, member Index
 
   # As a visitor

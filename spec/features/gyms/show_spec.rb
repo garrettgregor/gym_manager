@@ -235,8 +235,12 @@ RSpec.describe "gyms index page", type: :feature do
     visit "/gyms/#{gym1.id}"
     # save_and_open_page
 
-    expect(page).to have_content("Gym Members")
-    expect(page).to have_link("Gym Members", href: "/gyms/#{gym1.id}/members")
+    # expect(page).to have_link("Gym Members")
+    # expect(page).to have_link("Gym Members", href: "/gyms/#{gym1.id}/members")
+
+    click_link("Gym Members")
+
+    expect(current_path).to eq("/gyms/#{gym1.id}/members")
 
     visit "/gyms/#{gym2.id}"
     # save_and_open_page

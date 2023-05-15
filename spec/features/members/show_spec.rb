@@ -1,12 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "member show page", type: :feature do
-  # User Story 4, Child Show
-
-  # As a visitor
-  # When I visit '/child_table_name/:id'
-  # Then I see the child with that id including the child's attributes
-  # (data from each column that is on the child table)
   before :each do
     @gym1 = Gym.create!(name: "Movement",
       member_cost: 92,
@@ -34,6 +28,12 @@ RSpec.describe "member show page", type: :feature do
       co_resident: false,
       gym_id: @gym2.id)
   end
+  # User Story 4, Child Show
+
+  # As a visitor
+  # When I visit '/child_table_name/:id'
+  # Then I see the child with that id including the child's attributes
+  # (data from each column that is on the child table)
 
   it "can show one of the members" do
     visit "/members/#{@member1.id}"
