@@ -6,4 +6,8 @@ class GymsController < ApplicationController
   def show
     @gym = Gym.find(params[:id])
   end
+
+  def new
+    
+  end
 end
