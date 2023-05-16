@@ -6,3 +6,5 @@
 <h3>Member Cost Per Month: $<%= @gym.member_cost %></h3>
 <h3>Day Rate for Guests: $<%= @gym.guest_cost %></h3>
 <p>In Colorado: <%= @gym.in_colorado %></p>
+<br>
+<%= link_to "Update Gym", "/gyms/#{@gym.id}/edit"%>

@@ -33,7 +33,7 @@ RSpec.describe "parent child index page", type: :feature do
       money_spent: 250,
       co_resident: false,
       gym_id: @gym2.id)
-end
+  end
 
   it "can show one of the members" do
     visit "/gyms/#{@gym1.id}/members"
@@ -102,4 +102,34 @@ end
     expect(page).to have_content("Every Gym Everywhere")
     expect(page).to have_link("Every Gym Everywhere", href: "/gyms/")
   end
+
+  # User Story 13, Parent Child Creation
+
+  # As a visitor
+  # When I visit a Parent Children Index page
+  # Then I see a link to add a new adoptable child for that parent "Create Child"
+  # When I click the link
+  # I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+  # When I fill in the form with the child's attributes:
+  # And I click the button "Create Child"
+  # Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+  # a new child object/row is created for that parent,
+  # and I am redirected to the Parent Childs Index page where I can see the new child listed
+  # it "can direct to a new gym member page" do
+  #   visit "/gyms/#{@gym1.id}/members"
+
+  #   click_link("Create Member")
+  #   expect(current_path).to eq("/gyms/#{@gym1.id}/members/new")
+  # end
+
+  # it "can create a new gym member" do
+  #   visit "/gyms/#{@gym1.id}/members/new"
+
+  #   fill_in(:name, with: "Robert")
+  #   fill_in(:money_spent, with: 200)
+  #   check(:co_resident)
+
+  #   expect(current_path).to eq("/gyms/#{@gym1.id}/members")
+  #   expect(page).to have_content("Robert")
+  # end
 end
