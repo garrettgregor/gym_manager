@@ -1,0 +1,12 @@
+<%= form_with url: "/members/#{@member.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :money_spent %>
+  <%= form.number_field :money_spent %>
+  <br>
+  <%= form.label :co_resident %>
+  <%= form.check_box :co_resident %>
+  <br>
+  <%= form.submit "Update Member" %>
+<% end %>

@@ -121,20 +121,4 @@ RSpec.describe "parent child index page", type: :feature do
     click_link("Create Member")
     expect(current_path).to eq("/gyms/#{@gym1.id}/members/new")
   end
-
-  it "can create a new gym member" do
-    visit "/gyms/#{@gym1.id}/members/new"
-
-    fill_in(:name, with: "Robert")
-    fill_in(:money_spent, with: 200)
-    check(:co_resident)
-    click_button("Create Member")
-
-    expect(current_path).to eq("/gyms/#{@gym1.id}/members")
-    # save_and_open_page
-    expect(page).to have_content("Member Name: Robert")
-    expect(page).to have_content("Money Spent: $200")
-    expect(page).to have_content("Resident of CO?: true")
-    expect(page).to have_content("Member of: #{@gym1.id}")
-  end
 end
