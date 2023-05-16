@@ -114,14 +114,14 @@ RSpec.describe "gyms index page", type: :feature do
 
     click_link "New Gym"
 
+    # save_and_open_page
     expect(current_path).to eq("/gyms/new")
-    save_and_open_page
-    fill_in("Name:", with: "Gravity Vault")
-    fill_in("Member Cost:", with: 150)
-    fill_in("Guest Cost:", with: 35)
-    fill_in("In Colorado?:", with: false)
+    fill_in(:name, with: "Gravity Vault")
+    fill_in(:member_cost, with: 150)
+    fill_in(:guest_cost, with: 35)
+    check(:in_colorado)
+    click_button("Create Gym")
 
-    click_button "Create Gym"
     expect(current_path).to eq("/gyms")
     expect(page).to have_content("Gravity Vault")
   end
