@@ -1,7 +1,7 @@
 <h1>New Gym</h1>
 
 <%= form_with url: "/gyms/", method: :post, local: true do |form| %>
-  <%= form.label "Name:" %>
+  <%= form.label :name %>
   <%= form.text_field :name %>
 
   <%= form.label :member_cost %>
