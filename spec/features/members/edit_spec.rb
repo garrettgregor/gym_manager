@@ -53,6 +53,6 @@ RSpec.describe "member show page", type: :feature do
     expect(page).to have_content("Money Spent: $500")
     expect(page).to have_content("Resident of CO?: true")
     expect(page).to have_content("Member of: #{@gym1.id}")
-    save_and_open_page
+    # save_and_open_page
   end
 end
