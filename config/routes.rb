@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get "/members/:id", to: "members#show"
   get "/gyms/:id/members/new", to: "gyms/members#new"
   post "/gyms/:id/members", to: "gyms/members#create"
+  get "/members/:id/edit", to: "members#edit"
+  patch "/members/:id", to: "members#update"
 end
