@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get "/gyms/:id/members", to: "gyms/members#index"
   get "/members", to: "members#index"
   get "/members/:id", to: "members#show"
+  get "/gyms/:id/members/new", to: "gyms/members#new"
+  post "/gyms/:id/members", to: "gyms/members#create"
 end

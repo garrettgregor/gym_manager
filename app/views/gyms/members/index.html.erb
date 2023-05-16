@@ -8,3 +8,5 @@
   <p>Resident of CO?: <%= member.co_resident %></p>
   <p>Member of: <%= member.gym_id %></p>
 <% end %>
+<br>
+<%= link_to "Create Member", "/gyms/#{@gym.id}/members/new" %>
