@@ -115,21 +115,26 @@ RSpec.describe "parent child index page", type: :feature do
   # Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
   # a new child object/row is created for that parent,
   # and I am redirected to the Parent Childs Index page where I can see the new child listed
-  # it "can direct to a new gym member page" do
-  #   visit "/gyms/#{@gym1.id}/members"
+  it "can direct to a new gym member page" do
+    visit "/gyms/#{@gym1.id}/members"
 
-  #   click_link("Create Member")
-  #   expect(current_path).to eq("/gyms/#{@gym1.id}/members/new")
-  # end
+    click_link("Create Member")
+    expect(current_path).to eq("/gyms/#{@gym1.id}/members/new")
+  end
 
-  # it "can create a new gym member" do
-  #   visit "/gyms/#{@gym1.id}/members/new"
+  it "can create a new gym member" do
+    visit "/gyms/#{@gym1.id}/members/new"
 
-  #   fill_in(:name, with: "Robert")
-  #   fill_in(:money_spent, with: 200)
-  #   check(:co_resident)
+    fill_in(:name, with: "Robert")
+    fill_in(:money_spent, with: 200)
+    check(:co_resident)
+    click_button("Create Member")
 
-  #   expect(current_path).to eq("/gyms/#{@gym1.id}/members")
-  #   expect(page).to have_content("Robert")
-  # end
+    expect(current_path).to eq("/gyms/#{@gym1.id}/members")
+    # save_and_open_page
+    expect(page).to have_content("Member Name: Robert")
+    expect(page).to have_content("Money Spent: $200")
+    expect(page).to have_content("Resident of CO?: true")
+    expect(page).to have_content("Member of: #{@gym1.id}")
+  end
 end
